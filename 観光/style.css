@@ -1,0 +1,523 @@
+@charset "UTF-8";
+
+html,body {
+  font-size: 100%;
+  color: #ffffff;
+  font-family: "ah-hakushu-sutra-typeface", sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #ffffff;
+}
+
+.text-h {
+  font-size: 3.2rem;
+}
+
+.text-p {
+ font-size: 2rem;
+}
+
+dt {
+  font-size: 1.5rem;
+}
+
+dd {
+  font-size: 1.5rem;
+}
+
+/* =================================================header */
+#header .logo {
+  position: absolute;
+  width: 10%;
+  margin-top: 1%;
+  margin-left: 2%;
+  z-index: 1000;
+}
+
+/* ハンバーガーメニューの三本線 */
+#toggle {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#toggle span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* =============================================-ファーストビュー */
+/* ...既存のコード... */
+
+/* ファーストビュー画像スライダー */
+.first-view-ul {
+  position: relative;
+  width: 100vw;
+  height: 95vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.first-view-li {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-view-li.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.first-view-li img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 5s linear;
+}
+
+.first-view-li.active img {
+  transform: scale(1.1);
+}
+
+/* ===============================================background */
+#background-img {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -10; /* ここを-10に変更 */
+  transition: opacity 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#background-img.visible {
+  opacity: 1;
+}
+
+
+/* ==================================================news */
+#news {
+  position: relative;
+  justify-content: center;
+}
+
+.news-dl {
+  text-align: center;
+  display: block;
+  letter-spacing: 0.2em;
+}
+
+#news dt {
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+#news dl {
+  text-align: center;
+}
+
+#news .btn {
+  text-align: center;
+  display: block;
+}
+
+/* ===================================================about */
+.sec-title h2 {
+  writing-mode: vertical-rl;
+  text-align: center;
+  margin: 0 auto;
+  height: 60vh; /* 必要に応じて調整 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30%;
+}
+
+.text-area {
+  text-align: center;
+}
+
+.text-area .text {
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+}
+
+/* .li-1, .li-2, .li-3 を自由な位置に配置 */
+.about-list {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+}
+
+.li-1, .li-2, .li-3 {
+  position: absolute;
+  width: 30%;
+}
+
+.li-1 {
+  top: 10%;
+  left: 10%;
+}
+
+.li-2 {
+  top: 0%;
+  left: 60%;
+}
+
+.li-3 {
+  top: 0%;
+  left: 27%;
+}
+
+.about-list li {
+  position: relative;
+}
+
+.about-text {
+  position: absolute;
+  top: -4rem;
+  left: 0;
+  padding: 4px 8px;
+  font-size: 1em;
+  z-index: 2;
+  white-space: nowrap;
+  text-shadow: 2px 2px 6px rgba(0,0,0,1.2);
+}
+
+.area2 {
+  margin-top: 15%;
+}
+
+/* =============================================================shop */
+.shop-img {
+  position: relative;
+  width: 75%;
+  height: 45vh; /* 必要に応じて調整 */
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.shop-img li {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-img li.active {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 2s linear;
+}
+
+.shop-img li img {
+  width: 100vw;
+  height: 60vh;
+  object-fit: cover;
+  display: block;
+}
+
+.shop-text {
+  text-align: center;
+}
+/* ==================================================slider */
+
+#slider {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  height: 300px; /* スライドの高さに合わせて調整 */
+}
+
+.slider-track {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  will-change: transform;
+}
+
+.slide {
+  position: relative;
+  width: 240px;
+  height: 100%;
+  display: flex;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-text {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333;
+}
+/* ===================================================footer */
+#footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 24px 0;
+  font-size: 14px;
+  margin-top: 40px;
+  bottom: 0;
+  width: 100%;
+}
+
+/* ===============================================レスポンシブ */
+
+@media screen and (max-width: 640px) {
+  html, body {
+    font-size: 0.9rem;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+body {
+  background-image: url('bg/AdobeStock_324093017.jpeg'); /* 画像パスは適宜変更 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#background-img {
+  display: none;
+}
+.text-h {
+  font-size: 1.2rem;
+}
+
+.text-p {
+  font-size: 0.8rem;
+}
+
+dt {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+dd {
+  font-size: 0.8rem;
+}
+
+
+/* ====================================header */
+  #header .logo {
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+
+  #toggle {
+    top: 2%;
+    right: 3%;
+    width: 32px;
+    height: 24px;
+  }
+
+  .first-view {
+    width: 100vw;
+    object-fit: cover;
+    display: block;
+  }
+
+  .first-view-ul {
+    height: 40vh;
+  }
+  .first-view-li img {
+    width: 100vw;
+    height: 40vh;
+  }
+
+  .sec-title h2 {
+    font-size: 1.4em;
+    height: 30vh;
+    margin-right: 0;
+    writing-mode: horizontal-tb;
+  }
+/* =================================--about */
+.about-list li {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100%;
+  margin: 16px 0;
+}
+
+.about-list {
+  display: contents;
+  flex-direction: column;   /* 縦並びにする */
+  align-items: center;      /* 中央揃えにする */
+}
+
+.about-list img {
+  display: block;
+  margin: 16px 0;           /* 上下の間隔を調整 */
+}
+
+/* ======================================-shop */
+  .shop-img {
+    width: 100vw;
+    height: 24vh;
+  }
+  .shop-img li img {
+    width: 100vw;
+    height: 24vh;
+  }
+/* ========================================slider */
+  #slider {
+    height: 120px;
+  }
+  .custom-slider-free {
+    height: 100%;
+    width: 100vw;
+  }
+  .slide {
+    width: 60vw;
+    height: 100%;
+  }
+
+  .slide-text {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    writing-mode: vertical-rl;
+    background: rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    padding: 8px 4px;
+  }
+
+  #footer {
+    font-size: 12px;
+    padding: 16px 0;
+    margin-top: 24px;
+  }
+}
+/* ============================================================= */
+@media screen and (max-width: 1024px) {
+  html, body {
+    font-size: 1.5rem;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+
+
+body {
+  background-image: url('bg/AdobeStock_324093017.jpeg'); /* 画像パスは適宜変更 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#background-img {
+  display: none;
+}
+
+/* ===================================== */
+
+   #header .logo {
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+
+  #toggle {
+    top: 2%;
+    right: 3%;
+    width: 32px;
+    height: 24px;
+  }
+
+  .first-view {
+    width: 100vw;
+    object-fit: cover;
+    display: block;
+  }
+
+  .first-view-ul {
+    height: 40vh;
+  }
+  .first-view-li img {
+    width: 100vw;
+    height: 40vh;
+  }
+
+  .sec-title h2 {
+    font-size: 1.4em;
+    height: 30vh;
+    margin-right: 0;
+    writing-mode: horizontal-tb;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .shop-img {
+    width: 100vw;
+  }
+/* =================================================== 
+========================slider====================-==*/
+
+  .slide img {
+    width: 120%;
+  }
+}
