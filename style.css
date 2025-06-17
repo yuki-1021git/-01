@@ -1,0 +1,751 @@
+@charset "UTF-8";
+
+html,body {
+  font-size: 100%;
+  color: #fff;
+  font-family: "ah-hakushu-sutra-typeface", sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.text-h {
+  font-size: 3.2rem;
+}
+
+.text-p {
+ font-size: 2rem;
+}
+
+
+
+/* =================================================header */
+#header .logo {
+  position: absolute;
+  width: 10%;
+  margin-top: 1%;
+  margin-left: 2%;
+  z-index: 1000;
+}
+
+/* ハンバーガーメニューの三本線 */
+#toggle {
+  position: fixed;
+  top: 3%;
+  right: 2%;
+  width: 40px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#toggle span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #000000;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#nav-menu {
+  position: fixed;
+  top: 0;
+  right: -100vw;
+  width: 35vw;
+  height: 100vw;
+  background: rgba(0, 0, 0, 0.95);
+  transition: right 0.4s;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#nav-menu.active {
+  right: 0;
+}
+
+#nav-menu .navi {
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 15% 0 auto;
+}
+
+#nav-menu .sns {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 0 15%;
+}
+
+#nav-menu li {
+  margin: 24px 0;
+}
+
+#nav-menu a {
+  color: #fff;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+#navi-menu img {
+  width: 90%;
+  max-width: 80%;
+
+}
+/* =============================================-ファーストビュー */
+/* ...既存のコード... */
+
+/* ファーストビュー画像スライダー */
+.first-view-ul {
+  position: relative;
+  width: 100vw;
+  height: 95vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.first-view-li {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; 
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.first-view-li.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.first-view-li img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  transform: scale(1);
+  transition: transform 5s linear;
+}
+
+.first-view-li.active img {
+  transform: scale(1.1);
+}
+
+/* ===============================================background */
+#background-img {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -10; /* ここを-10に変更 */
+  transition: opacity 2s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  filter: brightness(0.5);
+}
+
+#background-img.visible {
+  opacity: 1;
+}
+
+
+/* ==================================================news */
+#news {
+  position: relative;
+  justify-content: center;
+}
+
+.news-dl {
+  text-align: center;
+  display: block;
+  letter-spacing: 0.2em;
+  font-size: 1.5rem;
+}
+
+#news dt {
+  text-align: center;
+  letter-spacing: 0.2em;
+  border-bottom: 1px solid #fff;
+  font-size: 1.5rem;
+  padding-bottom: 4px;
+}
+
+#news dd {
+  border-bottom: 1px dotted #fff;
+}
+
+#news dl {
+  text-align: center;
+  padding: 5% 17% 0 ;
+}
+
+#news .btn {
+  text-align: center;
+  margin-top: 2%;
+  display: block;
+  font-size: 1.2rem;
+}
+
+/* ===================================================about */
+.sec-title h2 {
+  writing-mode: vertical-rl;
+  text-align: center;
+  margin: 0 auto;
+  height: 60vh; /* 必要に応じて調整 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 30%;
+}
+
+.text-area {
+  text-align: center;
+}
+
+.text-area .text {
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+}
+
+/* .li-1, .li-2, .li-3 を自由な位置に配置 */
+.about-list {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  margin-bottom: 15%;
+}
+
+.li-1, .li-2, .li-3 {
+  position: absolute;
+  width: 30%;
+}
+
+.li-1 {
+  top: 10%;
+  left: 10%;
+}
+
+.li-2 {
+  top: 0%;
+  left: 60%;
+}
+
+.li-3 {
+  top: 0%;
+  left: 27%;
+}
+
+.about-list li {
+  position: relative;
+}
+
+.about-list li img {
+  opacity: 0;
+  transition: opacity 2s;
+}
+
+/* .fadein クラスが付いたときに表示 */
+.about-list li img.fadein {
+  opacity: 1;
+}
+
+.about-text {
+  position: absolute;
+  top: -4rem;
+  left: 0;
+  padding: 4px 8px;
+  font-size: 1em;
+  z-index: 2;
+  white-space: nowrap;
+  text-shadow: 2px 2px 6px rgba(0,0,0,1.2);
+}
+
+.area2 {
+  margin-top: 15%;
+}
+
+/* =============================================================shop */
+.shop-img {
+  position: relative;
+  width: 75%;
+  height: 55vh; /* 必要に応じて調整 */
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.shop-img li {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 0;
+  transition: opacity 2s linear;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop-img li.active {
+  opacity: 1;
+  z-index: 1;
+  transition: opacity 2s linear;
+}
+
+.shop-img li img {
+  width: 100vw;
+  height: 60vh;
+  object-fit: cover;
+  display: block;
+}
+
+.shop-text {
+  text-align: center;
+  margin-bottom: 15vh;
+}
+/* ==================================================slider */
+
+#slider {
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  height: 300px; /* スライドの高さに合わせて調整 */
+}
+
+.slider-track {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  will-change: transform;
+}
+
+.slide {
+  position: relative;
+  width: 240px;
+  height: 100%;
+  display: flex;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.slide-text {
+  margin-top: 8px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* ===================================================access */
+#access .access-info {
+  display: flex;
+  gap: 32px; /* テキストと地図の間隔 */
+  align-items: flex-start;
+  margin-top: 24px;
+}
+
+#access .access-text {
+  flex: 1;
+}
+
+#access .access-map {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  margin: auto 10% auto 20%;
+}
+
+.sec-map {
+  margin-top: 10%;
+    text-align: center;
+    font-size: 2.8rem;
+    font-weight: 500;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+}
+
+#access dl {
+  margin: auto 0% auto 25%;;
+  font-size: 1.5rem;
+  padding-bottom: 16px;
+}
+
+#access dt {
+  font-weight: 700;
+  margin-top: 12px;
+  border-bottom: 1px dotted #fff;
+}
+
+#access dd {
+  margin-left: 1em;
+  margin-bottom: 5%;
+}
+/* ===================================================footer */
+#footer {
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 24px 0;
+  font-size: 14px;
+  margin-top: 40px;
+  bottom: 0;
+  width: 100%;
+}
+
+.sns-list {
+  display: flex;
+  gap: 16px;
+  list-style: none;
+  margin: 16px 0 0 0;
+  padding: 0;
+  justify-content: center;
+}
+
+/* ===============================================レスポンシブ */
+
+@media screen and (max-width: 640px) {
+  html, body {
+    font-size: 0.9rem;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    color: #000;
+  }
+body {
+  background-image: url('img/bg/sora.jpg'); /* 画像パスは適宜変更 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#background-img {
+  display: none;
+}
+
+a {
+  color: #000;
+}
+.text-h {
+  font-size: 1.2rem;
+}
+
+.text-p {
+  font-size: 0.8rem;
+}
+
+.news-dl dt {
+  font-size: 0.9rem !important;
+  font-weight: 500;
+  border-bottom: 1px solid #000 !important;
+}
+
+.news-dl dd {
+  font-size: 0.8rem !important;
+  border-bottom: 1px dotted #000 !important;
+}
+
+
+/* ====================================header */
+  #header .logo {
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+
+  #toggle {
+    top: 2%;
+    right: 3%;
+    width: 32px;
+    height: 24px;
+  }
+
+  .first-view {
+    width: 100vw;
+    object-fit: cover;
+    display: block;
+  }
+
+  .first-view-ul {
+    height: 40vh;
+  }
+  .first-view-li img {
+    width: 100vw;
+    height: 40vh;
+  }
+
+  .sec-title h2 {
+    font-size: 1.4em;
+    height: 30vh;
+    margin-right: 0;
+    writing-mode: horizontal-tb;
+  }
+/* =================================--about */
+.about-list li {
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+  width: 100%;
+  margin: 16px 0;
+}
+
+.about-list {
+  display: contents;
+  flex-direction: column;   /* 縦並びにする */
+  align-items: center;      /* 中央揃えにする */
+  margin-top: 20%;
+}
+
+.about-list img {
+  display: flex;
+  margin: 26px 0;           /* 上下の間隔を調整 */
+}
+
+/* ======================================-shop */
+  .shop-img {
+    width: 100vw;
+    height: 24vh;
+  }
+  .shop-img li img {
+    width: 100vw;
+    height: 24vh;
+  }
+
+/* ========================================access */
+.access-text dl {
+  margin: 0 auto !important;
+}
+
+.access-text dt {
+  font-size: 1.1rem !important;
+}
+
+.access-text dd {
+  font-size: 0.9rem !important;
+}
+
+#access .access-info {
+    flex-direction: column;      /* 縦並びに変更 */
+    gap: 16px;                   /* 間隔を調整 */
+  }
+  #access .access-map {
+    max-width: 100%;             /* 地図を幅いっぱいに */
+    min-width: 0;
+  }
+  #access .access-text {
+    width: 100%;                 /* テキストも幅いっぱいに */
+  }
+  #access dl {
+    padding-bottom: 8px;         /* 下余白を調整 */
+  }
+  #access iframe {
+    height: 200px;               /* 地図の高さを調整（お好みで） */
+  }
+/* ========================================slider */
+  #slider {
+    height: 350px;
+  }
+  .custom-slider-free {
+    height: 100%;
+    width: 100vw;
+  }
+  .slide {
+    width: 60vw;
+    height: 100%;
+  }
+
+  .slide-text {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    writing-mode: vertical-rl;
+    /* background: rgba(0, 0, 0, 0.4); */
+    color: #000000;
+    padding: 8px 4px;
+  }
+
+  #footer {
+    font-size: 0.7rem;
+    padding: 16px 0;
+    margin-top: 24px;
+  }
+
+  .sns-list {
+    font-size: 0.6rem;
+    flex-direction: column;
+  }
+}
+/* ============================================================= */
+/* ============================================================= */
+@media screen and (max-width: 1024px) {
+  html, body {
+    font-size: 1.5rem;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    color: #000;
+  }
+
+
+body {
+  background-image: url('img/bg/sora.jpg'); /* 画像パスは適宜変更 */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+#background-img {
+  display: none;
+}
+
+.text-p {
+  padding: 100px;
+}
+
+.news-dl dt {
+  font-size: 1.5rem !important;
+  font-weight: 500;
+  border-bottom: 1px solid #000 !important;
+}
+
+.news-dl dd {
+  font-size: 1.2rem !important;
+  border-bottom: 1px dotted #000 !important;
+}
+
+a {
+  color: #000;
+}
+/* ===================================== */
+
+   #header .logo {
+    width: 30%;
+    margin-top: 3%;
+    margin-left: 3%;
+  }
+
+  #toggle {
+    top: 2%;
+    right: 3%;
+    width: 32px;
+    height: 24px;
+  }
+
+  .first-view {
+    width: 100vw;
+    object-fit: cover;
+    display: block;
+  }
+
+  .first-view-ul {
+    height: 40vh;
+  }
+  .first-view-li img {
+    width: 100vw;
+    height: 40vh;
+  }
+
+  .sec-title h2 {
+    font-size: 1.4em;
+    height: 30vh;
+    margin-right: 0;
+    writing-mode: horizontal-tb;
+  }
+
+  .text {
+    font-size: 0.9rem;
+  }
+
+  .shop-img {
+    width: 100vw;
+  }
+
+.about-list {
+  height: 55vh;
+  margin-top: 30vh;
+}
+
+/* =================================================== 
+========================slider====================-==*/
+
+  .slide img {
+    width: 120%;
+  }
+
+
+  #access .access-info {
+    flex-direction: column;      /* 縦並びに変更 */
+    gap: 16px;               
+    height: 60vh;    /* 間隔を調整 */
+  }
+  #access .access-map {
+    max-width: 100%;             /* 地図を幅いっぱいに */
+    min-width: 0;
+    width: 80vw;
+    margin: 0 auto;
+  }
+  #access .access-text {
+    width: 100%;                 /* テキストも幅いっぱいに */
+  }
+  #access dl {
+    padding-bottom: 8px;
+  }
+
+  #access dl dt {
+    border: none !important;
+  }
+  /* #access iframe {
+    height: 200px;               /* 地図の高さを調整（お好みで） */
+
+}
